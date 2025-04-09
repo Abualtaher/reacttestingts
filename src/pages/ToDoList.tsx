@@ -1,20 +1,8 @@
-import { SetStateAction, useState, useEffect } from "react";
+import { SetStateAction, useState } from "react";
 
 function ToDoList() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState("");
-
-  useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-      setTasks(JSON.parse(storedTasks));
-    }
-  }, []);
-
-  // Spara till localStorage när tasks ändras
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
 
   function handleInputChange(event: {
     target: { value: SetStateAction<string> };
@@ -51,39 +39,43 @@ function ToDoList() {
       setTasks(updatedTasks);
     }
   }
-
   return (
-    <>
+    <div className="to-do-list">
       <h1>To-Do-List</h1>
-      <input
-        type="text"
-        placeholder="Inter Task..."
-        value={newTask}
-        onChange={handleInputChange}
-      />
-      <button className="add-button" onClick={addTask}>
-        Add Task
-      </button>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter a task..."
+          value={newTask}
+          onChange={handleInputChange}
+        />
+        <button className="add-button" onClick={addTask}>
+          add
+        </button>
+      </div>
       <ol>
         {tasks.map((task, index) => (
           <li key={index}>
             <span className="text">{task}</span>
             <button className="delete-button" onClick={() => deleteTask(index)}>
-              Delete
-            </button>
-            <button className="move-task-up" onClick={() => moveTaskUp(index)}>
-              Moveup
+              Delete Task
             </button>
             <button
-              className="move-task-up"
+              className="move-button-up"
+              onClick={() => moveTaskUp(index)}
+            >
+              Move Task 👆
+            </button>
+            <button
+              className="move-button-down"
               onClick={() => moveTaskDown(index)}
             >
-              MoveDown
+              Move Task 👇
             </button>
           </li>
         ))}
       </ol>
-    </>
+    </div>
   );
 }
 
