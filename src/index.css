@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* space between cards */
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid hsla(0, 0%, 0%, 0.645);
+  border-radius: 10px;
+  width: 300px;
+  height: auto;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 2px 5px 5px rgba(103, 102, 102, 0.497);
+  overflow: hidden;
+  background-color: rgba(234, 224, 224, 0.202);
+}
+.card span {
+  display: block;
+  margin: 2px 0;
+}
+.avatar {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
