@@ -16,6 +16,7 @@ import Home from "../pages/Home";
 import Users from "../pages/Users";
 import FormPage from "../pages/FormPage";
 import ToDoList from "../pages/ToDoList";
+import ComponentA from "./ComponentA";
 // import AdbIcon from "@mui/icons-material/Adb";
 
 const pages = [
@@ -23,6 +24,7 @@ const pages = [
   { name: "Users", path: "/users" },
   { name: "Förmulär", path: "/form" },
   { name: "ToDoList", path: "/todo" },
+  { name: "ComponentA", path: "/componentA" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -187,6 +189,7 @@ function Header() {
         <Route path="/users" element={<Users />} />
         <Route path="/form" element={<FormPage />} />
         <Route path="/todo" element={<ToDoList />} />
+        <Route path="/componentA" element={<ComponentA />} />
       </Routes>
     </>
   );
